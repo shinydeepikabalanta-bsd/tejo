@@ -1,1 +1,31 @@
 
+  #start-btn {
+    padding: 10px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: grey;
+    color: white;
+    cursor: not-allowed;
+    transition: background 0.2s;
+  }
+
+  #start-btn.ready {
+    background-color: green;
+    cursor: pointer;
+  }
+
+  .entry{
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    text-align: center;
+    
+  }
+
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows:    repeat(20, 20px);
+}
