@@ -1,5 +1,4 @@
-
-  #startBtn {
+#start-btn {
     padding: 10px 30px;
     font-size: 16px;
     border: none;
@@ -10,8 +9,8 @@
     transition: background 0.2s;
   }
 
-  #startBtn.ready {
-    background-color: rgb(41, 178, 41);
+  #start-btn.ready {
+    background-color: green;
     cursor: pointer;
   }
 
@@ -24,8 +23,146 @@
     
   }
 
-#gameCanvas {
+  #gameCanvas {
     display: none;
     color: blue;
     background:black;
-  }
+    position: absolute;
+      inset: 0;
+      z-index: 0; 
+}
+
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows:    repeat(20, 20px);
+}
+
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      color: gold;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .game-wrapper {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scoreboard {
+      display: flex;
+      gap: 40px;
+    }
+
+    .score-box {
+      background: grey;
+      border: 1px solid gold;
+      border-radius: 8px;
+      padding: 8px 24px;
+      text-align: center;
+    }
+
+    .score-box span {
+      display: block;
+      color: black;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .score-box strong {
+      display: block;
+      color: gold;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /*CANVAS+GRID */
+    .canvas-container {
+      position: relative;
+      width: 1200px;
+      height: 600px;
+      border: 3px solid gold;
+      border-radius: 6px;
+      box-shadow: 0 0 30px rgba(205, 241, 23, 0.25);
+      overflow: hidden;
+      background-color: #787f87;
+    }
+
+    /* Grid drawn with CSS repeating-linear-gradient */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          to right,
+          rgb(169, 153, 88) 0px,
+          rgb(169, 153, 88) 1px,
+          transparent 1px,
+          transparent 40px        /* cell size = 20px → 20 columns */
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgb(169, 153, 88) 0px,
+          rgb(169, 153, 88) 1px,
+          transparent 1px,
+          transparent 40px        /* cell size = 20px → 20 rows */
+        );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* The actual <canvas> sits below the grid overlay */
+    
+
+    /* Corner accent marks */
+    .canvas-container::before,
+    .canvas-container::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: gold;
+      border-style: solid;
+      z-index: 2;
+    }
+
+    .canvas-container::before {
+      top: 6px;
+      left: 6px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .canvas-container::after {
+      bottom: 6px;
+      right: 6px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .controls {
+      color: #667;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
