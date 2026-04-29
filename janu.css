@@ -1,4 +1,4 @@
-#start-btn {
+#startBtn {
     padding: 10px 30px;
     font-size: 16px;
     border: none;
@@ -9,7 +9,7 @@
     transition: background 0.2s;
   }
 
-  #start-btn.ready {
+  #startBtn.ready {
     background-color: green;
     cursor: pointer;
   }
@@ -24,13 +24,16 @@
   }
 
   #gameCanvas {
-    display: none;
+    display: block;
     color: blue;
     background:black;
     position: absolute;
-      inset: 0;
-      z-index: 0; 
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%; 
 }
+
 
   .grid {
   display: grid;
